@@ -117,6 +117,9 @@ func maxDelay(w http.ResponseWriter, req *http.Request) {
 
 	var delayAsString = req.RequestURI
 	delayAsString = strings.Replace(delayAsString, "/maxDelay?", "", -1)
+
+	log.Printf("maxDelay: %v", delayAsString)
+
 	delayAsInt64, err = strconv.ParseInt(delayAsString, 10, 64)
 	if err != nil {
 		w.Write([]byte(err.Error()))
@@ -135,6 +138,9 @@ func minDelay(w http.ResponseWriter, req *http.Request) {
 
 	var delayAsString = req.RequestURI
 	delayAsString = strings.Replace(delayAsString, "/minDelay?", "", -1)
+
+	log.Printf("minDelay: %v", delayAsString)
+
 	delayAsInt64, err = strconv.ParseInt(delayAsString, 10, 64)
 	if err != nil {
 		w.Write([]byte(err.Error()))
