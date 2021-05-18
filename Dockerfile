@@ -18,4 +18,5 @@ FROM scratch
 COPY --from=builder /app/main .
 
 EXPOSE 8000
+EXPOSE 8080
 CMD ["/main"]
